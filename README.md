@@ -1,4 +1,8 @@
-# RestRant
+# Project REST-Rant
+
+REST-Rant is an app where users can review restaurants.
+
+<!-- added the full projects steps so I could keep up with them as we're going along -->
 
 Part 1: Project setup, stub three routes, and creating a README file
 Part 2: Stub remaining GET and POST routes, planning mock restaurant data, drawing wireframes, and making your first view
