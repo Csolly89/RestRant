@@ -2,17 +2,18 @@
 
 REST-Rant is an app where users can review restaurants.
 
-<!-- added the full projects steps so I could keep up with them as we're going along -->
+Coolor Pallete #12130F,#5B9279,#8FCB9B,#EAE6E5,#8F8073..
 
-Part 1: Project setup, stub three routes, and creating a README file
-Part 2: Stub remaining GET and POST routes, planning mock restaurant data, drawing wireframes, and making your first view
-Part 3: Making more views, creating a layout page, and expanding your README
-Part 4: Adding some style with CSS
-Part 5: Forms, validation, and navigation
-Part 6: Implementing delete functionality and adding a DELETE route
-Part 7: Implementing edit form and functionality, adding a PUT route
-Part 8: Implementing the Mongoose ODM
-Part 9: Seed data, validations, and helper methods
-Part 10: Adding commentary: rants and raves
-Part 11: Populating data for star ratings
-Part 12: Deploying your project
+| Method | Path                     | Purpose                                          |
+| ------ | ------------------------ | ------------------------------------------------ |
+| Get    | /                        | Home Page                                        |
+| Get    | /places                  | Places index page                                |
+| Post   | /places                  | Create new place                                 |
+| Get    | /places/new              | Form page for creating a new place               |
+| Get    | /places/:id              | Details about a particular place                 |
+| Put    | /places:id               | Update a particular place                        |
+| Get    | /places/:id/edit         | Form page for editing an existing place          |
+| Delete | /places/:id              | Delete a particular place                        |
+| Post   | /places/:id/rant         | Create a rant (comment) about a particular place |
+| Delete | /places/:id/rant/:randId | Delete a rant (comment) about a particular place |
+| Get    | \*                       | 404 page (matches any route not defined above)   |
