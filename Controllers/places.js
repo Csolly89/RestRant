@@ -75,7 +75,7 @@ router.put('/:id', (req, res) => {
           req.body.state = 'USA'
       }
       places[id] = req.body
-      res.redirect(`/places/${id}`)
+      res.redirect(`/places`)
   }
 })
 
