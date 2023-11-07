@@ -1,0 +1,10 @@
+const mongoose = require ('mongoose')
+
+let commentSchema = new mongoose.Schema({
+    author: {Type:String, Default: "Anonymous"},
+    rant: {type: Boolean, default: false},
+    starts: {type: Number, require: true},
+    content: {type: String, default: ''}
+})
+
+module.exports = mongoose.model('Comment', commentSchema)
