@@ -1,6 +1,10 @@
 const db = require ('../models')
+const Place = require ("../models/places")
+const Comment = require("//models/comment")
 
 async function seed() {
+    await dbconnect();
+    
     let place = await db.Place.findOne({name: 'H-Thai-ML'})
 
     let comment = await db.Comment.create({
