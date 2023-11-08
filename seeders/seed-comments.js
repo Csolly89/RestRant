@@ -10,10 +10,13 @@ async function seed() {
         content: 'Wow, Simply amazing! Highly recommended!!'
     })
 
+    // pushing comments to the places comment array
     place.comments.push(comment.id)
 
+    // save the place now that it has a comment
     await place.save()
 
+    // exit the program
     process.exit()
 }
 
