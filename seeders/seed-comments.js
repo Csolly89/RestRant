@@ -1,28 +1,31 @@
-const db = require ('../models')
-const Place = require ("../models/places")
-const Comment = require("//models/comment")
+// seeder/seed-comments.js
 
+const dbconnect = require("../models");
+const Place = require("../models/places");
+const Comment = require("../models/comment");
+
+// To use await, we need an async function.
 async function seed() {
-    await dbconnect();
-    
-    let place = await db.Place.findOne({name: 'H-Thai-ML'})
+  await dbconnect();
 
-    let comment = await db.Comment.create({
-        author:'Famished Fran',
-        rant: false,
-        starts: 5.0,
-        content: 'Wow, Simply amazing! Highly recommended!!'
-    })
+  // Get the place, H-Thai-ML
+  let place = await Place.findOne({ name: "H-Thai-ML" });
 
-    // pushing comments to the places comment array
-    place.comments.push(comment.id)
+  // Create a fake sample comment.
+  let comment = await Comment.create({
+    author: "Famished Fran",
+    rant: false,
+    stars: 5.0,
+    content: "Wow, simply amazing! Highly recommended!",
+  });
 
-    // save the place now that it has a comment
-    await place.save()
+  // Add that comment to the place's comment array.
+  place.comments.push(comment.id);
 
-    // exit the program
-    process.exit()
+  //save the place now that it has comment
+  await place.save();
+
+  // Exit the program
+  process.exit();
 }
-
-seed()
-
+seed();
