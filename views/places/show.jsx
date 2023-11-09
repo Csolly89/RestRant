@@ -1,14 +1,15 @@
 const React = require('react')
 const Def = require('../default')
 
-function show (data) {
+
+function show ({place}) {
     let comments = (
         <h4 className="inactive">
           No comments yet!
         </h4>
       )
-      if (data.place.comments.length) {
-        comments = data.place.comments.map(c => {
+      if (place.comments.length) {
+        comments = place.comments.map(c => {
           return (
             <div className="border">
               <h2 className="rant">{c.rant ? 'Rant!' : 'Rave!'}</h2>
@@ -26,18 +27,18 @@ function show (data) {
             <main>
             <div className="row">
                 <div className="col-sm-6">
-                    <h1>{ data.place.name }</h1>
-                    <img className="placesImg" src={data.place.pic} alt={data.place.name} />
+                    <h1>{ place.name }</h1>
+                    <img className="placesImg" src={place.pic} alt={place.name} />
                         <h3>
-                        Located in {data.place.city}, {data.place.state}
+                        Located in {place.city}, {place.state}
                         </h3>
                 </div>        
                 <div className="col-sm-6">
                     <h3>
-                    {data.place.showEstablished()}
+                    {place.showEstablished()}
                     </h3>
                     <h4>
-                    Serving {data.place.cuisines}
+                    Serving {place.cuisines}
                     </h4>
 
                     <div>
@@ -52,10 +53,10 @@ function show (data) {
                         <h2>Comments</h2>
                         {comments}
                     </div>
-                    <a href={`/places/${data.id}/edit`} className="btn btn-warning"> 
+                    <a href={`/places/${place.id}/edit`} className="btn btn-warning"> 
                     Edit
                     </a>
-                    <form method="POST" action={`/places/${data.id}?_method=DELETE`}>
+                    <form method="POST" action={`/places/${place.id}?_method=DELETE`}>
                     <button type="submit" className="btn btn-danger">
                         Delete
                     </button>
@@ -65,22 +66,22 @@ function show (data) {
             </main>
           
             <h1>Leave a Review</h1>
-            <form method="POST" action="/places/:id/comment ">
+            <form method="POST" action={`/places/${place.id}/comment`}>
                 <div className="form-group">
                     <label htmlFor="author">Author</label>
-                    <input className="form-control" type="text" id="name" />
+                    <input className="form-control" type="text" id="author" name="author" />
                 </div>
                 <div className="form-group">
                     <label htmlFor="rant">Rant</label>
-                    <input className="form-control" type="checkbox" id="rant"/>
+                    <input className="form-control" type="checkbox" id="rant" name="rant"/>
                 </div>
                 <div className="form-group">
                     <label htmlFor="stars">Star Rating</label>
-                    <input className="form-control" type="number" id="stars"/>
+                    <input className="form-control" type="number" id="stars" name="stars"/>
                 </div>
                 <div className="form-group">
-                    <label htmlFor="Content">Content</label>
-                    <input className="form-control" type="textarea" id="Content"/>
+                    <label htmlFor="content">Content</label>
+                    <input className="form-control" type="textarea" id="content" name="content"/>
                 </div>
     
                 <input className="btn btn-primary" type="submit" value="Add Review" />
