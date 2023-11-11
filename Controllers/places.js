@@ -31,7 +31,7 @@ router.get('/:id', (req, res) => {
   db.Place.findById(req.params.id)
   .populate('comments')
   .then(place => {
-    console.log(place.comments)
+    // console.log(place.comments)
     res.render('places/show', {place})
   })
   .catch(err => {
@@ -53,7 +53,7 @@ router.get('/:id/edit', (req, res) => {
 })
 
 router.post('/:id/rant', (req, res) => {
-  console.log(req.body)
+  // console.log(req.body)
   db.Place.findById(req.params.id)
   then(place => {
     db.Comment.create(req.body)
@@ -74,7 +74,7 @@ router.post('/:id/rant', (req, res) => {
 })
 
 router.post('/:id/comment', (req,res) => {
-  console.log(req.body)
+  // console.log(req.body)
   db.Place.findById(req.params.id)
   .then(place => {
     db.Comment.create(req.body)
