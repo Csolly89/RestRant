@@ -17,7 +17,7 @@ const MONGO_URI = process.env.MONGO_URI
 const PORT = process.env.PORT
 
 // Controllers & Routes
-app.use('/places', require('./controllers/places'))
+app.use('/places', require('./Controllers/places'))
 
 
 app.get('/', (req, res) => {
